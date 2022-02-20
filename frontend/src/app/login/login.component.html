@@ -1,0 +1,23 @@
+<h1 style="text-align: center; margin-top: 90px;" >LogIn</h1>
+<form style="margin-top: 40px;" name="userForm" #userForm="ngForm" >
+
+    <label>Email</label>
+    <input type="email"  name="email" [(ngModel)]="user.email" #email="ngModel" 
+    [class.is-Invalid]="email.invalid && email.touched" email="true"   required >
+    <div *ngIf="email.errors && (email.touched && email.invalid)">
+        <small *ngIf="email.errors?.['required']" style="color: red;">*Email ID is required</small>
+        <small *ngIf="email.errors?.['email']"  style="color: red;">*Email ID is Invalid</small>
+    </div>
+
+ <label>Password</label>
+    <input type="password" name="password" [(ngModel)]="user.password" #password="ngModel" 
+    [class.is-Invalid]="password.invalid && password.touched" password="true"  required>
+
+    <div *ngIf="password.errors && (password.touched && password.invalid)">
+        <small *ngIf="password.errors?.['required']" style="color: red;">*Password is required</small>
+        <small *ngIf="password.errors?.['password']"  style="color: red;">*Password is Wrong</small>
+    </div>
+
+    <button type="submit" style="margin-top: 10px; float: inline-end;  margin-left: 130px;" >LogIn</button>
+    <a routerLink="/register"> | Create an Account</a>
+</form>
