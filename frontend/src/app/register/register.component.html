@@ -1,7 +1,7 @@
 
 
 <h1 style="text-align: center; margin-top: 90px;" >Registration</h1>
-<form style="margin-top: 40px;" name="userForm" #userForm="ngForm" >
+<form style="margin-top: 40px;" name="registerForm" #registerForm="ngForm" >
     <label>Name</label> 
         <input [(ngModel)]="user.name" #name="ngModel" [class.is-Invalid]="name.invalid && name.touched"
          type="text" name="name" name="true" required>
@@ -23,10 +23,6 @@
                  <small [class.d-none]="phone.valid || phone.untouched" style="color: red;"> *Phone No. is
                     required</small>
 
-    <!-- <label>Role</label>
-    <select name="role"  > 
-        <option *ngFor="let role of roles">{{role}}</option>
-      </select> -->
 
       <div>
         <label>Role</label>
@@ -46,18 +42,7 @@
           <small *ngIf="password.errors?.['password']"  style="color: red;">*Password is Wrong</small>
       </div>
   
-      <button type="submit" style="margin-top: 10px; float: inline-end; " >Register</button>
+      <button type="submit" [disabled]="registerForm.form.invalid" (click)="register()"  style="margin-top: 10px; float: inline-end; " >Register</button>
   </form>
 
-      <!-- <label>Date</label>
-      <input type="date"  name="date"  > -->
-      <!-- <div class="radio">
-      <label>Role</label>
-      <label class="radio-inline"><input type="radio"  name="gender" style="color:turquoise ;">Male</label>
-      <label class="radio-inline"><input type="radio"  name="gender" style="color:turquoise ;" > Female</label>
-      </div> -->
-      <!-- <label>Password</label>
-    <input type="password" name="password" >
-
-    <button type="submit" style="margin-top: 10px; float: inline-end; " >Register</button>
-</form> -->
+    
