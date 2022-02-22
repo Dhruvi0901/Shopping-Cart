@@ -19,6 +19,7 @@ export class RegisterComponent implements OnInit {
   }
 
   register(){
+    
 
     this.registerService.postUser(this.user).subscribe((res)=>{
       console.log(res)

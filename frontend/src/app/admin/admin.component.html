@@ -1,4 +1,4 @@
-<a routerLink="/product" class="btn">Add Product</a>
+<a  class="btn"  [routerLink]="['/product']" [queryParams]="{admin: profileId}" >Add Product</a>
 <table>
     <thead>
         <tr>
@@ -12,7 +12,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let product of products">
+        <tr *ngFor="let product of items">
             <td>{{product.productName}}</td>
             <td>{{product.image}}</td>
             <td>{{product.description}}</td>

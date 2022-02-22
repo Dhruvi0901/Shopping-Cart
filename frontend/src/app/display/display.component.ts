@@ -9,11 +9,12 @@ import { Product } from '../interface/user';
 })
 export class DisplayComponent implements OnInit {
 
+  products:  Product[];
+  
   constructor(private productService: ProductserviceService) {
     this.products = [];
    }
 
-   products:  Product[];
 
   ngOnInit(): void {
     this.getProducts()

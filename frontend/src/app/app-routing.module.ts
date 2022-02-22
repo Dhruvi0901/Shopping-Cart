@@ -23,7 +23,7 @@ const routes: Routes = [{
   component: RegisterComponent
 },
 {
-  path: 'admin',
+  path: 'admin/:profileId',
   component: AdminComponent
 }
 ];

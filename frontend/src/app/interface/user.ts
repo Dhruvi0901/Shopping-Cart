@@ -6,6 +6,7 @@ export class User {
     name?: String;
     phone?: Number;
     role?: String;
+    profileId?:Number;
 
 }
 export class Product{
