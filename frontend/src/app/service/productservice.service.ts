@@ -25,11 +25,4 @@ apiUrl = 'http://localhost:3000'
   getAdminProduct(profileId: Number): Observable<Product[]> {
     return this.http.get<Product[]>(this.apiUrl+'/product/admin/'+profileId)
   }
-
-  
-  
-
-
-
-
 }
