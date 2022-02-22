@@ -22,6 +22,9 @@ apiUrl = 'http://localhost:3000'
     return this.http.post<Product[]>(this.apiUrl+'/product',product)
   }
 
+  
+  
+
 
 
 

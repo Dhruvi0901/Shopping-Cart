@@ -8,6 +8,7 @@ import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
 import { ProductComponent } from './product/product.component';
 import { DisplayComponent } from './display/display.component';
+import { AdminComponent } from './admin/admin.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { DisplayComponent } from './display/display.component';
     RegisterComponent,
     LoginComponent,
     ProductComponent,
-    DisplayComponent
+    DisplayComponent,
+    AdminComponent
   
   ],
   imports: [

@@ -9,6 +9,8 @@ export class User {
 
 }
 export class Product{
+    profileId?: Number;
+    productId?: Number;
     productName?: String;
     image?: String;
     description?: String;

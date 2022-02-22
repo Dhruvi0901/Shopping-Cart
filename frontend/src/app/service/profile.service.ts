@@ -13,7 +13,7 @@ export class ProfileService {
   constructor(private http: HttpClient) { }
 
 
-  postUser(user: User): Observable<User[]> {
+  loginUser(user: User): Observable<User[]> {
     return this.http.post<User[]>(this.apiUrl+'/login',user)
   }
 

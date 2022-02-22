@@ -10,7 +10,13 @@ import { Router } from '@angular/router';
 })
 export class ProductComponent implements OnInit {
 
-  product = new Product();
+product = new Product();
+
+//   productName='';
+// image = '';
+// description = '';
+// quantity='';
+// price='';
   
 
   constructor(private productService: ProductserviceService,  private router: Router) { }
@@ -23,7 +29,7 @@ export class ProductComponent implements OnInit {
 
     this.productService.postProduct(this.product).subscribe((res)=>{
       console.log(res)
-      this.router.navigate(['/'])
+      this.router.navigate(['/admin'])
     })
 
     
@@ -31,3 +37,27 @@ export class ProductComponent implements OnInit {
   }
 
 }
+
+// ngOnInit(): void {
+// }
+
+// saveData(): void {
+
+//   const data = {
+//     productName: this.productName,
+//     image: this.image,
+//     description: this.description,
+//     quantity: this.quantity,
+//     price: this.price
+//   }
+  
+//   this.productService.postProduct(this.product).subscribe(
+//     () => {
+//       this.router.navigate(['/admin/users'])
+//     }
+//   )
+// }
+
+
+// }
+
