@@ -13,10 +13,12 @@ export class AdminComponent implements OnInit {
 
   public profileId: Number 
 
-  items: Product[];
+  Product: Product[] = []
+
+  // items: Product[];
   constructor( private route:ActivatedRoute, private productService: ProductserviceService ) {
     
-    this.items = [];
+    // this.items = [];
     this.profileId = (Number(this.route.snapshot.paramMap.get('profileId')))
    
    }
@@ -26,18 +28,19 @@ export class AdminComponent implements OnInit {
   }
   
   getAdminProducts(){
+
+    
+
     this.productService.getAdminProduct(this.profileId).subscribe((res)=>{
 
-      this.items = res as Product[];
+      
+
+      this.Product = res;
+      console.log(this.Product)
+     
     })
   }
-  delProduct(){
 
-  }
-
-  updateProduct(){
-    
-  }
 
 }
 
