@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Product } from '../interface/user';
+import { ProductserviceService } from '../service/productservice.service';
+
 
 @Component({
   selector: 'app-admin',
@@ -8,17 +11,26 @@ import { Product } from '../interface/user';
 })
 export class AdminComponent implements OnInit {
 
-  constructor( ) {
+  public profileId: Number 
+
+  items: Product[];
+  constructor( private route:ActivatedRoute, private productService: ProductserviceService ) {
+    
+    this.items = [];
+    this.profileId = (Number(this.route.snapshot.paramMap.get('profileId')))
    
    }
-
-   products: Product[] = []
-
-//  products = new Product();
-
+ 
   ngOnInit(): void {
+    this.getAdminProducts()
   }
+  
+  getAdminProducts(){
+    this.productService.getAdminProduct(this.profileId).subscribe((res)=>{
 
+      this.items = res as Product[];
+    })
+  }
   delProduct(){
 
   }
@@ -28,3 +40,5 @@ export class AdminComponent implements OnInit {
   }
 
 }
+
+
