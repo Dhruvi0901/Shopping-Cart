@@ -1,8 +1,7 @@
-<a  class="btn"  [routerLink]="['/product']" [queryParams]="{admin: profileId}" >Add Product</a>
+<a  class="btn"  [routerLink]="['/product']" [queryParams]="{admin: profileId}" >Add Product</a> 
 <table>
     <thead>
         <tr>
-       
         <th>ProductName</th>
         <th>Image</th>
         <th>Description</th>
@@ -18,10 +17,11 @@
             <td>{{product.description}}</td>
             <td>{{product.quantity}}</td>
             <td>{{product.price}}</td>
-            <td>
-             
-                <button class="btn btn-warning" >Edit</button>
-                <button class="btn btn-warning" >Delete</button>
+          
+                <td>
+                    <button  [routerLink]="['/product']"  [queryParams]="{editId: product.productId}">Edit</button>
+                    <!-- <button  (click)="delProduct(product.productId)">Delete</button> -->
+                
             </td>
         </tr>
     </tbody>

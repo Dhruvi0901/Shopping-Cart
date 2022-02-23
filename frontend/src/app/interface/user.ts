@@ -1,5 +1,3 @@
-
-
 export class User {
     email?:string;
     password?: Number;
@@ -18,4 +16,9 @@ export class Product{
     quantity?: Number;
     price?: Number;
     
+}
+
+export class Cart{
+    profileId?: Number;
+    productId?: Number;
 }

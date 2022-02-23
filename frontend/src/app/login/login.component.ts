@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
 
 
       }else if(this.user.role == 'User'){
-        this.router.navigate(['/display'])
+        this.router.navigate(['/display/'+this.user.profileId])
 
       }else{
         alert('Invalid UserId or Password')

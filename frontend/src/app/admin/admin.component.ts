@@ -12,15 +12,10 @@ import { ProductserviceService } from '../service/productservice.service';
 export class AdminComponent implements OnInit {
 
   public profileId: Number 
-
   Product: Product[] = []
 
-  // items: Product[];
   constructor( private route:ActivatedRoute, private productService: ProductserviceService ) {
-    
-    // this.items = [];
     this.profileId = (Number(this.route.snapshot.paramMap.get('profileId')))
-   
    }
  
   ngOnInit(): void {
@@ -28,17 +23,14 @@ export class AdminComponent implements OnInit {
   }
   
   getAdminProducts(){
-
-    
-
     this.productService.getAdminProduct(this.profileId).subscribe((res)=>{
-
-      
-
       this.Product = res;
       console.log(this.Product)
-     
     })
+  }
+
+  delProduct(){
+    
   }
 
 

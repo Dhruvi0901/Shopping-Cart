@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { ProductComponent } from './product/product.component';
 import { DisplayComponent } from './display/display.component';
 import { AdminComponent } from './admin/admin.component';
+import { CartComponent } from './cart/cart.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { AdminComponent } from './admin/admin.component';
     LoginComponent,
     ProductComponent,
     DisplayComponent,
-    AdminComponent
+    AdminComponent,
+    CartComponent
   
   ],
   imports: [

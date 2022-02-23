@@ -11,8 +11,9 @@ import { __param } from 'tslib';
 })
 export class ProductComponent implements OnInit {
 
-product = new Product();
+product : Product = new Product();
  public profileId : Number | undefined;
+ public productId!: Number;
 
 
   constructor(private productService: ProductserviceService, private route: ActivatedRoute, private router: Router) {
@@ -20,9 +21,18 @@ product = new Product();
     this.route.queryParams.subscribe(params=>{
       this.profileId = Number(params['admin'])
     })
+
+    this.route.queryParams.subscribe(params=>{
+      this.productId = Number(params['editId'])
+    })
    }
 
   ngOnInit(): void {
+ 
+    // if(this.productId >= 1){
+      
+      this.fillData()
+    // }
   }
 
   saveData(){
@@ -32,6 +42,13 @@ product = new Product();
       this.router.navigate(['/admin/'+this.profileId])
       console.log(this.profileId);
 
+    })
+  }
+  fillData(){
+    this.productService.getEditProduct(this.productId).subscribe((res)=>{
+      this.product.productName = 'Dhruvi'
+      this.product = res as Product;
+      console.log(this.product)
     })
   }
 
