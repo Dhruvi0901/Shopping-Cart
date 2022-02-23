@@ -58,6 +58,7 @@ export class ProductComponent implements OnInit {
 
     this.productService.putEditProduct(this.productId, this.product).subscribe((res)=>{
       console.log(res)
+      this.router.navigate(['/admin/' + this.product.profileId])
     })
 
 

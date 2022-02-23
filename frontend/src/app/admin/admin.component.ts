@@ -20,6 +20,7 @@ export class AdminComponent implements OnInit {
  
   ngOnInit(): void {
     this.getAdminProducts()
+    console.log(this.profileId)
   }
   
   getAdminProducts(){
@@ -30,7 +31,7 @@ export class AdminComponent implements OnInit {
   }
 
   delProduct(){
-    
+
   }
 
 
