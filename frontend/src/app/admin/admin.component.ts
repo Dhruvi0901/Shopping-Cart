@@ -30,11 +30,13 @@ export class AdminComponent implements OnInit {
     })
   }
 
-  delProduct(){
+  delProduct(productId: any){
+    productId = Number(productId)
 
+    this.productService.deleteProduct(productId).subscribe((res)=>{
+      console.log(res)
+    })
   }
-
-
 }
 
 

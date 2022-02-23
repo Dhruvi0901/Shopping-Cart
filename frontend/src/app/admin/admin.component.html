@@ -19,8 +19,8 @@
             <td>{{product.price}}</td>
           
                 <td>
-                    <button  [routerLink]="['/product']"  [queryParams]="{editId: product.productId}">Edit</button>
-                    <!-- <button  (click)="delProduct(product.productId)">Delete</button> -->
+                    <button  [routerLink]="['/product']" [queryParams]="{editId: product.productId}">Edit</button>
+                    <button  (click)="delProduct(product.productId)">Delete</button>
                 
             </td>
         </tr>

@@ -34,4 +34,9 @@ apiUrl = 'http://localhost:3000'
   putEditProduct(productId: Number,product: Product): Observable<Product[]> {
     return this.http.put<Product[]>(this.apiUrl+'/product/'+productId,product)
   }
+
+
+  deleteProduct(productId: Number): Observable<Product[]> {
+    return this.http.delete<Product[]>(this.apiUrl+'/product/'+productId)
+  }
 }
