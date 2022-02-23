@@ -29,4 +29,9 @@ apiUrl = 'http://localhost:3000'
   getEditProduct(productId: Number): Observable<Product[]> {
     return this.http.get<Product[]>(this.apiUrl+'/product/edit/'+productId)
   }
+
+
+  putEditProduct(productId: Number,product: Product): Observable<Product[]> {
+    return this.http.put<Product[]>(this.apiUrl+'/product/'+productId,product)
+  }
 }
