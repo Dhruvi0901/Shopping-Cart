@@ -19,4 +19,8 @@ export class CartService {
     return this.http.get<Cart[]>(this.apiUrl+'/cart/'+profileId)
   }
 
+  deleteCartProduct(productId: Number): Observable<Cart[]> {
+    return this.http.delete<Cart[]>(this.apiUrl+'/cart/'+productId)
+  }
+
 }

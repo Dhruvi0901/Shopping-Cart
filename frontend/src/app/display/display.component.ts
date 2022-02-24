@@ -37,7 +37,8 @@ export class DisplayComponent implements OnInit {
     } 
 
     this.cartService.postToCart(product).subscribe((res)=>{
-      console.log("item added to cart:" + res)
+      console.log("item added to cart:" )
+      this.ngOnInit();
     })
 
   }

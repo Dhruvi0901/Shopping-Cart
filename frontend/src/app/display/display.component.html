@@ -23,7 +23,7 @@
             <td>{{product.price}}</td>
             <td>
              
-                <button class="btn btn-primary " (click)="addToCart(product.productId)">Add to Cart</button>
+                <button class="btn btn-primary "  [routerLink]="['/cart']" [queryParams]="{user: profileId}" (click)="addToCart(product.productId)">Add to Cart</button>
             </td>
 
             

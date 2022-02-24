@@ -21,4 +21,6 @@ export class Product{
 export class Cart{
     profileId?: Number;
     productId?: Number;
+    productName?: String;
+    quantity?: Number;
 }

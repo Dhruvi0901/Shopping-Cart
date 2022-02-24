@@ -11,32 +11,38 @@ import { ProductserviceService } from '../service/productservice.service';
 })
 export class AdminComponent implements OnInit {
 
-  public profileId: Number 
+  public profileId: Number
   Product: Product[] = []
 
-  constructor( private route:ActivatedRoute, private productService: ProductserviceService ) {
+  constructor(private route: ActivatedRoute, private productService: ProductserviceService) {
     this.profileId = (Number(this.route.snapshot.paramMap.get('profileId')))
-   }
- 
+  }
+
   ngOnInit(): void {
     this.getAdminProducts()
     console.log(this.profileId)
   }
-  
-  getAdminProducts(){
-    this.productService.getAdminProduct(this.profileId).subscribe((res)=>{
+
+  getAdminProducts() {
+    this.productService.getAdminProduct(this.profileId).subscribe((res) => {
       this.Product = res;
       console.log(this.Product)
     })
   }
 
-  delProduct(productId: any){
+  delProduct(productId: any) {
     productId = Number(productId)
+    if (confirm("Are you sure to Delete")) {
+      this.productService.deleteProduct(productId).subscribe((res) => {
+        console.log(res)
+        this.ngOnInit();
+      })
+    }
 
-    this.productService.deleteProduct(productId).subscribe((res)=>{
-      console.log(res)
-    })
+
   }
+
 }
+
 
 

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Product } from '../interface/user';
+import { Cart, Product } from '../interface/user';
 import { CartService } from '../service/cart.service';
 
 @Component({
@@ -11,7 +11,7 @@ import { CartService } from '../service/cart.service';
 export class CartComponent implements OnInit {
 
   public profileId!: Number; 
-  cartProducts: Product[] = []
+  cartProducts: Cart[] = []
 
   constructor(private route: ActivatedRoute, private cartService: CartService) {
 
@@ -30,6 +30,19 @@ export class CartComponent implements OnInit {
       this.cartProducts = res
       console.log(res)
     })
+  }
+
+  delProduct(productId: any) {
+    productId = Number(productId)
+    if (confirm("Are you sure to Delete")) {
+      this.cartService.deleteCartProduct(productId).subscribe((res) => {
+        console.log(res)
+        this.ngOnInit();
+        
+      })
+    }
+
+
   }
 
 }
