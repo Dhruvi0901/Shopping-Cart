@@ -28,7 +28,6 @@ export class CartComponent implements OnInit {
   getCartProduct(){
     this.cartService.getCartProduct(this.profileId).subscribe((res)=>{
       this.cartProducts = res
-      console.log(res)
     })
   }
 
@@ -37,11 +36,9 @@ export class CartComponent implements OnInit {
     if (confirm("Are you sure to Delete")) {
       this.cartService.deleteCartProduct(productId).subscribe((res) => {
         console.log(res)
-        this.ngOnInit();
-        
+        this.ngOnInit();   
       })
     }
-
 
   }
 

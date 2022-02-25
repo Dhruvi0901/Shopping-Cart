@@ -22,9 +22,11 @@ export class LoginComponent implements OnInit {
   login(){
 
     this.profileService.loginUser(this.user).subscribe((res)=>{
-      this.user = res as User;
-
+      if(res){
+        this.user = res as User;
+      }
       console.log(this.user.role)
+
       if(this.user.role == 'Admin'){
         this.router.navigate(['/admin/'+this.user.profileId])
 
@@ -34,6 +36,7 @@ export class LoginComponent implements OnInit {
 
       }else{
         alert('Invalid UserId or Password')
+        this.ngOnInit()
       }
      
     })

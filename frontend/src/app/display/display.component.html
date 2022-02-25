@@ -3,7 +3,7 @@
 
 <button  [routerLink]="['/cart']" [queryParams]="{user: profileId}">Cart</button>
 
-<table>
+<table *ngIf=" products.length; else elseBlock">
     <thead>
         <tr>     
         <th>ProductName</th>
@@ -30,3 +30,6 @@
         </tr>
     </tbody>
 </table>
+<ng-template #elseBlock>
+    <h2 style="text-align: center;">No product to sell</h2>
+</ng-template>

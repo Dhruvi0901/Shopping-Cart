@@ -30,7 +30,6 @@ export class DisplayComponent implements OnInit {
   }
 
   addToCart(productId: any){
-
    let product = {
       "profileId": this.profileId,
       "productId": Number(productId)
@@ -38,7 +37,6 @@ export class DisplayComponent implements OnInit {
 
     this.cartService.postToCart(product).subscribe((res)=>{
       console.log("item added to cart:" )
-      this.ngOnInit();
     })
 
   }

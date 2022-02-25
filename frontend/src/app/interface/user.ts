@@ -23,4 +23,5 @@ export class Cart{
     productId?: Number;
     productName?: String;
     quantity?: Number;
+    price?:Number
 }

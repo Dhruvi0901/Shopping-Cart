@@ -45,9 +45,8 @@ export class ProductComponent implements OnInit {
   }
   fillData() {
     this.productService.getEditProduct(this.productId).subscribe((res) => {
-      //this.product 
       this.product = res as Product;
-
+      console.log(this.product);
       this.saveBtn = "none";
       this.updateBtn = "inline";
 

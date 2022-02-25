@@ -1,5 +1,6 @@
-<a  class="btn"  [routerLink]="['/product']" [queryParams]="{admin: profileId}" >Add Product</a> 
-<table>
+<a  class="btn" [routerLink]="['/product']" [queryParams]="{admin: profileId}" >Add Product</a> 
+
+<table *ngIf=" Product.length; else elseBlock">
     <thead>
         <tr>
         <th>ProductName</th>
@@ -26,3 +27,6 @@
         </tr>
     </tbody>
 </table>
+<ng-template #elseBlock>
+    <h1 style="text-align: center;">Add Your Product To Sell</h1>
+</ng-template>
