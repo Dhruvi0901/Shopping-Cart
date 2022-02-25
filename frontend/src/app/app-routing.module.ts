@@ -34,6 +34,10 @@ const routes: Routes = [{
 {
   path: 'admin/:profileId',
   component: AdminComponent
+},
+{
+  path: '**',
+  component: LoginComponent
 }
 ];
 
