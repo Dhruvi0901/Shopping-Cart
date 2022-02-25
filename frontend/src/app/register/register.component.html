@@ -1,0 +1,48 @@
+
+
+<h1 style="text-align: center; margin-top: 90px;" >Registration</h1>
+<form style="margin-top: 40px;" name="registerForm" #registerForm="ngForm" >
+    <label>Name</label> 
+        <input [(ngModel)]="user.name" #name="ngModel" [class.is-Invalid]="name.invalid && name.touched"
+         type="text" name="name" name="true" required>
+        <small [class.d-none]="name.valid || name.untouched" style="color: red;"> *Name is
+            required</small>
+    
+
+            <label>Email</label>
+            <input type="email"  name="email" [(ngModel)]="user.email" #email="ngModel" 
+            [class.is-Invalid]="email.invalid && email.touched" email="true"   required >
+            <div *ngIf="email.errors && (email.touched && email.invalid)">
+                <small *ngIf="email.errors?.['required']" style="color: red;">*Email ID is required</small>
+                <small *ngIf="email.errors?.['email']"  style="color: red;">*Email ID is Invalid</small>
+            </div>
+
+            <label>Phone No.</label>
+            <input [(ngModel)]="user.phone" #phone="ngModel" [class.is-Invalid]="phone.invalid && phone.touched" 
+                 type="tel" pattern="[0-9]{10}" name="phone" required>
+                 <small [class.d-none]="phone.valid || phone.untouched" style="color: red;"> *Phone No. is
+                    required</small>
+
+
+      <div>
+        <label>Role</label>
+        <select #role="ngModel" [class.is-Invalid]="role.invalid && role.touched"  name="role" [(ngModel)]="user.role" required>
+            <option *ngFor="let role of roles">{{role}}</option>
+        </select>
+        <small [class.d-none]="role.untouched || role.valid" style="color: red;"> * select role</small>
+    </div>
+    
+
+      <label>Password</label>
+      <input type="password" name="password" [(ngModel)]="user.password" #password="ngModel" 
+      [class.is-Invalid]="password.invalid && password.touched" password="true"  required>
+  
+      <div *ngIf="password.errors && (password.touched && password.invalid)">
+          <small *ngIf="password.errors?.['required']" style="color: red;">*Password is required</small>
+          <small *ngIf="password.errors?.['password']"  style="color: red;">*Password is Wrong</small>
+      </div>
+  
+      <button type="submit" [disabled]="registerForm.form.invalid" (click)="register()"  style="margin-top: 10px; float: inline-end; " >Register</button>
+  </form>
+
+    

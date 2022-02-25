@@ -1,0 +1,28 @@
+<h1 style="text-align: center;">Shopping Bag</h1>
+<br>
+<table *ngIf=" cartProducts.length; else elseBlock">
+    <thead>
+        <tr>
+        <th>ProductName</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let product of cartProducts">
+            <td>{{product.productName}}</td>
+            <td>{{product.quantity}}</td>
+            <td>{{product.price}}</td>
+            <td>
+             
+                <button  (click)="delProduct(product.productId)">Delete</button>
+            </td>
+
+            
+        </tr>
+    </tbody>
+</table>
+<ng-template #elseBlock>
+    <h2 style="text-align: center;">Cart is Empty</h2>
+</ng-template>

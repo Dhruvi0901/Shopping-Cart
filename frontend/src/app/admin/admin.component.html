@@ -1,0 +1,32 @@
+<a  class="btn" [routerLink]="['/product']" [queryParams]="{admin: profileId}" >Add Product</a> 
+
+<table *ngIf=" Product.length; else elseBlock">
+    <thead>
+        <tr>
+        <th>ProductName</th>
+        <th>Image</th>
+        <th>Description</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let product of Product">
+            <td>{{product.productName}}</td>
+            <td>{{product.image}}</td>
+            <td>{{product.description}}</td>
+            <td>{{product.quantity}}</td>
+            <td>{{product.price}}</td>
+          
+                <td>
+                    <button  [routerLink]="['/product']" [queryParams]="{editId: product.productId}">Edit</button>
+                    <button  (click)="delProduct(product.productId)">Delete</button>
+                
+            </td>
+        </tr>
+    </tbody>
+</table>
+<ng-template #elseBlock>
+    <h1 style="text-align: center;">Add Your Product To Sell</h1>
+</ng-template>

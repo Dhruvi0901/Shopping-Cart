@@ -1,0 +1,35 @@
+<h1 style="text-align: center;">Welcome User</h1>
+<br>
+
+<button  [routerLink]="['/cart']" [queryParams]="{user: profileId}">Cart</button>
+
+<table *ngIf=" products.length; else elseBlock">
+    <thead>
+        <tr>     
+        <th>ProductName</th>
+        <th>Image</th>
+        <th>Description</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let product of products">
+            <td>{{product.productName}}</td>
+            <td>{{product.image}}</td>
+            <td>{{product.description}}</td>
+            <td>{{product.quantity}}</td>
+            <td>{{product.price}}</td>
+            <td>
+             
+                <button class="btn btn-primary "  [routerLink]="['/cart']" [queryParams]="{user: profileId}" (click)="addToCart(product.productId)">Add to Cart</button>
+            </td>
+
+            
+        </tr>
+    </tbody>
+</table>
+<ng-template #elseBlock>
+    <h2 style="text-align: center;">No product to sell</h2>
+</ng-template>
