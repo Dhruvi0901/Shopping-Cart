@@ -4,6 +4,7 @@ import { AdminComponent } from './admin/admin.component';
 import { CartComponent } from './cart/cart.component';
 import { DisplayComponent } from './display/display.component';
 import { LoginComponent } from './login/login.component';
+import { PlaceorderComponent } from './placeorder/placeorder.component';
 import { ProductComponent } from './product/product.component';
 import { RegisterComponent } from './register/register.component';
 
@@ -14,6 +15,10 @@ const routes: Routes = [{
 {
   path: 'cart',
   component: CartComponent
+},
+{
+  path: 'placeorder',
+  component: PlaceorderComponent
 },
 {
   path: 'login',
@@ -34,6 +39,10 @@ const routes: Routes = [{
 {
   path: 'admin/:profileId',
   component: AdminComponent
+},
+{
+  path: '**',
+  component: LoginComponent
 }
 ];
 

@@ -10,6 +10,7 @@ import { ProductComponent } from './product/product.component';
 import { DisplayComponent } from './display/display.component';
 import { AdminComponent } from './admin/admin.component';
 import { CartComponent } from './cart/cart.component';
+import { PlaceorderComponent } from './placeorder/placeorder.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { CartComponent } from './cart/cart.component';
     ProductComponent,
     DisplayComponent,
     AdminComponent,
-    CartComponent
+    CartComponent,
+    PlaceorderComponent
   
   ],
   imports: [

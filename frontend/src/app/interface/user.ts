@@ -25,3 +25,8 @@ export class Cart{
     quantity?: Number;
     price?:Number
 }
+
+export class Placeorder{
+    profileId?: Number;
+    total?:String;
+}

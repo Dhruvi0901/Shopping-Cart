@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Product } from '../interface/user';
+import { Placeorder, Product } from '../interface/user';
 
 
 @Injectable({
@@ -39,4 +39,9 @@ apiUrl = 'http://localhost:3000'
   deleteProduct(productId: Number): Observable<Product[]> {
     return this.http.delete<Product[]>(this.apiUrl+'/product/'+productId)
   }
+
+  getTotal(profileId: Number){
+    return this.http.get(this.apiUrl+'/cart/checkout/'+profileId)
+  }
+
 }
