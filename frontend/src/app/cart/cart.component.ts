@@ -39,7 +39,32 @@ export class CartComponent implements OnInit {
         this.ngOnInit();   
       })
     }
+    
+  }
 
+  increase(productId: any){
+    productId = Number(productId)
+    let product={
+      productId:productId,
+      profileId: this.profileId
+    }
+    
+    this.cartService.increaseCartProduct(product).subscribe((res) => {
+      console.log(res)
+      this.ngOnInit();   
+    })
+  }
+  decrease(productId: any){
+    productId = Number(productId)
+    let product={
+      productId:productId,
+      profileId: this.profileId
+    }
+
+    this.cartService.decreaseCartProduct(product).subscribe((res) => {
+      console.log(res)
+      this.ngOnInit();   
+    })
   }
 
 }

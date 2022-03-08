@@ -69,8 +69,7 @@
     padding: 0.75rem;
     vertical-align: top;
   }
-  .btn,
-  button {
+.btn {
     display: inline-block;
     background: #a36e73;
     color: white;
@@ -108,5 +107,14 @@
     font-size: 50px;
     text-align: center;
     margin-top: 50px;
+  }
+  .counter{
+    background-color: aliceblue; 
+    padding: 0 2% 0 2%;
+    font-weight: bold;
+    color: black;
+  }
+  .counter:hover{
+    cursor: pointer;
   }
   

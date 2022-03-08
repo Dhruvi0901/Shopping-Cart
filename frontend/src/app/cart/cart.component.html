@@ -12,18 +12,22 @@
     <tbody>
         <tr *ngFor="let product of cartProducts">
             <td>{{product.productName}}</td>
-            <td>{{product.quantity}}</td>
+            <td>
+                <button class="counter" (click)="decrease(product.productId)">-</button>
+                {{product.quantity}}
+                <button class="counter" (click)="increase(product.productId)">+</button>
+            </td>
             <td>{{product.price}}</td>
             <td>
              
-                <button  (click)="delProduct(product.productId)">Delete</button>
+                <button  class="btn" (click)="delProduct(product.productId)">Delete</button>
             </td>
 
             
         </tr>
     </tbody>
 </table>
-<button style="margin-top: 10px; margin-left: 73%;background-color: gray; color: wheat; font-weight: bold;" [routerLink]="['/placeorder']" [queryParams]="{user: profileId}">CheckOut</button>
+<button class="btn" style="margin-top: 10px; margin-left: 73%;background-color: gray; color: wheat; font-weight: bold;" [routerLink]="['/placeorder']" [queryParams]="{user: profileId}">CheckOut</button>
 <ng-template #elseBlock>
     <h2 style="text-align: center;">Cart is Empty</h2>
 </ng-template>
