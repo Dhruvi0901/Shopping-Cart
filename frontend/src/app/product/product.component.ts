@@ -17,7 +17,6 @@ export class ProductComponent implements OnInit {
   public updateBtn = "none";
   public saveBtn = "inline";
 
-
   constructor(private productService: ProductserviceService, private route: ActivatedRoute, private router: Router) {
 
     this.route.queryParams.subscribe(params => {

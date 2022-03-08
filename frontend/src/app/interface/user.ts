@@ -5,6 +5,7 @@ export class User {
     phone?: Number;
     role?: String;
     profileId?:Number;
+    
 
 }
 export class Product{
@@ -15,6 +16,8 @@ export class Product{
     description?: String;
     quantity?: Number;
     price?: Number;
+    status?:String;
+    createdDate?:String;
     
 }
 

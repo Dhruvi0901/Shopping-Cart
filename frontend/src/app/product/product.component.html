@@ -33,6 +33,14 @@
              type="text" name="price" price="true" required>
             <small [class.d-none]="price.valid || price.untouched" style="color: red;"> *Price is
                 required</small>
+
+                <div>
+                    <label>Status</label>
+                    <select #status="ngModel" [class.is-Invalid]="status.invalid && status.touched"  name="status" [(ngModel)]="product.status" required>
+                        <option *ngFor="let i of ['Active','Inactive']">{{i}}</option>
+                    </select>
+                    <small [class.d-none]="status.untouched || status.valid" style="color: red;"> * select Status</small>
+                </div>
     
       <button type="submit" [disabled]="productForm.form.invalid" (click)="saveData()" [style.display]="saveBtn"
       style="margin-top: 10px; float: inline-end; "  >ADD</button>
