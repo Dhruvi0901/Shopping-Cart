@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../interface/user';
-import { RegisterService } from '../service/register.service';
+import { ProductserviceService } from '../service/productservice.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -13,7 +13,7 @@ export class RegisterComponent implements OnInit {
   user = new User();
   roles = ['','Admin','User'];
 
-  constructor(private registerService: RegisterService, private router: Router) { }
+  constructor(private registerService: ProductserviceService, private router: Router) { }
 
   ngOnInit(): void {
   }

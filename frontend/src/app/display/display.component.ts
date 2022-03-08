@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ProductserviceService } from '../service/productservice.service';
 import { Product } from '../interface/user';
 import { ActivatedRoute } from '@angular/router';
-import { CartService } from '../service/cart.service';
 
 @Component({
   selector: 'app-display',
@@ -14,7 +13,7 @@ export class DisplayComponent implements OnInit {
   public profileId: Number 
   products:  Product[];
   
-  constructor(private productService: ProductserviceService, private route: ActivatedRoute, private cartService: CartService) {
+  constructor(private productService: ProductserviceService, private route: ActivatedRoute, private cartService: ProductserviceService) {
     this.profileId = (Number(this.route.snapshot.paramMap.get('profileId'))) 
     this.products = [];
    }

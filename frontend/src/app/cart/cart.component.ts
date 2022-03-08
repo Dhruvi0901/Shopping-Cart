@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Cart, Product } from '../interface/user';
-import { CartService } from '../service/cart.service';
+import { ProductserviceService } from '../service/productservice.service';
 
 @Component({
   selector: 'app-cart',
@@ -13,7 +13,7 @@ export class CartComponent implements OnInit {
   public profileId!: Number; 
   cartProducts: Cart[] = []
 
-  constructor(private route: ActivatedRoute, private cartService: CartService) {
+  constructor(private route: ActivatedRoute, private cartService: ProductserviceService) {
 
     this.route.queryParams.subscribe(params=>{
       this.profileId = Number(params['user'])

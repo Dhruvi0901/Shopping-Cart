@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from '../interface/user';
-import { ProfileService } from '../service/profile.service';
+import { ProductserviceService } from '../service/productservice.service';
 
 
 
@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
 
   user = new User();
 
-  constructor(private router: Router, private profileService: ProfileService) { }
+  constructor(private router: Router, private profileService: ProductserviceService) { }
 
   ngOnInit(): void {
   }

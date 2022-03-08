@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { CartService } from '../service/cart.service';
 import { ProductserviceService } from '../service/productservice.service';
 import { Placeorder } from '../interface/user';
 
@@ -18,8 +17,7 @@ export class PlaceorderComponent implements OnInit {
 
 
   constructor(private productService: ProductserviceService,
-    private route: ActivatedRoute,
-    private cartService: CartService) {
+    private route: ActivatedRoute,) {
       
       this.route.queryParams.subscribe(params=>{
         this.profileId = Number(params['user'])

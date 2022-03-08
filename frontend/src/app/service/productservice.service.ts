@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Placeorder, Product } from '../interface/user';
+import { Placeorder, Product,User,Cart } from '../interface/user';
 
 
 @Injectable({
@@ -30,11 +30,9 @@ apiUrl = 'http://localhost:3000'
     return this.http.get<Product[]>(this.apiUrl+'/product/edit/'+productId)
   }
 
-
   putEditProduct(productId: Number,product: Product): Observable<Product[]> {
     return this.http.put<Product[]>(this.apiUrl+'/product/'+productId,product)
   }
-
 
   deleteProduct(productId: Number): Observable<Product[]> {
     return this.http.delete<Product[]>(this.apiUrl+'/product/'+productId)
@@ -42,6 +40,25 @@ apiUrl = 'http://localhost:3000'
 
   getTotal(profileId: Number){
     return this.http.get(this.apiUrl+'/cart/checkout/'+profileId)
+  }
+
+  loginUser(user: User): Observable<User[]> {
+    return this.http.post<User[]>(this.apiUrl+'/login',user)
+  }
+
+  postUser(user: User): Observable<User[]> {
+    return this.http.post<User[]>(this.apiUrl+'/profile',user)
+  }
+  
+  postToCart(product: Cart): Observable<Cart[]> {
+    return this.http.post<Cart[]>(this.apiUrl+'/cart',product)
+  }
+  getCartProduct(profileId: Number): Observable<Cart[]> {
+    return this.http.get<Cart[]>(this.apiUrl+'/cart/'+profileId)
+  }
+
+  deleteCartProduct(productId: Number): Observable<Cart[]> {
+    return this.http.delete<Cart[]>(this.apiUrl+'/cart/'+productId)
   }
 
 }
