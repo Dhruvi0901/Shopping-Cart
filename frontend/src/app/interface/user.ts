@@ -18,7 +18,7 @@ export class Product{
     price?: Number;
     status?:String;
     createdDate?:String;
-    
+    sellerName?:String;    
 }
 
 export class Cart{

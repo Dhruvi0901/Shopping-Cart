@@ -1,3 +1,4 @@
+<a  class="logout" [routerLink]="['/']" > Logout</a> 
 <h1 style="text-align: center;">Welcome User</h1>
 <br>
 
@@ -17,7 +18,7 @@
     <tbody>
         <tr *ngFor="let product of products">
             <td>{{product.productName}} 
-                <br><small> by {{product.profileId}}</small>
+                <br><small> by {{product.sellerName}}</small>
             </td>
             <td>{{product.image}}</td>
             <td>{{product.description}}</td>

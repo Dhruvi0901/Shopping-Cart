@@ -1,4 +1,4 @@
-<h1 style="text-align: center;">Shopping Bag</h1>
+<h2 style="text-align: center;">Shopping Bag</h2>
 <br>
 <table *ngIf=" cartProducts.length; else elseBlock">
     <thead>
@@ -23,7 +23,7 @@
         </tr>
     </tbody>
 </table>
-<button style="margin-top: 10px; margin-left: 73%;" [routerLink]="['/placeorder']" [queryParams]="{user: profileId}">CheckOut</button>
+<button style="margin-top: 10px; margin-left: 73%;background-color: gray; color: wheat; font-weight: bold;" [routerLink]="['/placeorder']" [queryParams]="{user: profileId}">CheckOut</button>
 <ng-template #elseBlock>
     <h2 style="text-align: center;">Cart is Empty</h2>
 </ng-template>
