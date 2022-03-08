@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Placeorder, Product,User,Cart } from '../interface/user';
+import { environment } from 'src/environments/environment';
 
 
 @Injectable({
@@ -9,7 +10,7 @@ import { Placeorder, Product,User,Cart } from '../interface/user';
 })
 export class ProductserviceService {
 
-apiUrl = 'http://localhost:3000'
+apiUrl = environment.NodeJsURL
 
 
   constructor(private http: HttpClient) { }
@@ -48,6 +49,10 @@ apiUrl = 'http://localhost:3000'
 
   postUser(user: User): Observable<User[]> {
     return this.http.post<User[]>(this.apiUrl+'/profile',user)
+  }
+
+  getUser(profileId: Number): Observable<User[]> {
+    return this.http.get<User[]>(this.apiUrl+'/profile/'+profileId)
   }
   
   postToCart(product: Cart): Observable<Cart[]> {

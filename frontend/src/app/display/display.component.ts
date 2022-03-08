@@ -12,6 +12,8 @@ export class DisplayComponent implements OnInit {
 
   public profileId: Number 
   products:  Product[];
+
+  userName:any;
   
   constructor(private productService: ProductserviceService, private route: ActivatedRoute, private cartService: ProductserviceService) {
     this.profileId = (Number(this.route.snapshot.paramMap.get('profileId'))) 
@@ -26,6 +28,11 @@ export class DisplayComponent implements OnInit {
     this.productService.getProduct().subscribe((res)=>{
       this.products = res;
     })
+
+    this.productService.getUser(this.profileId).subscribe((res)=>{
+      this.userName = res[0]['name'];
+    })
+
   }
 
   addToCart(productId: any){
@@ -39,6 +46,8 @@ export class DisplayComponent implements OnInit {
     })
 
   }
+
+
 
   
 

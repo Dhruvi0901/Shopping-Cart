@@ -14,6 +14,8 @@ export class AdminComponent implements OnInit {
   public profileId: Number
   Product: Product[] = []
 
+  adminName:any;
+
   constructor(private route: ActivatedRoute, private productService: ProductserviceService) {
     this.profileId = (Number(this.route.snapshot.paramMap.get('profileId')))
   }
@@ -27,6 +29,10 @@ export class AdminComponent implements OnInit {
     this.productService.getAdminProduct(this.profileId).subscribe((res) => {
       this.Product = res;
       console.log(this.Product)
+    })
+
+    this.productService.getUser(this.profileId).subscribe((res)=>{
+      this.adminName = res[0]['name'];
     })
   }
 

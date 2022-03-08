@@ -1,5 +1,8 @@
 <a  class="btn" [routerLink]="['/product']" [queryParams]="{admin: profileId}" > + Add Product</a> 
-<a  class="logout" [routerLink]="['/']" > Logout</a> 
+<div class="end">
+    <p>Hi, {{adminName}} !</p>
+    <a class="logout" [routerLink]="['/']" > Logout</a> 
+</div>
 
 <table *ngIf=" Product.length; else elseBlock">
     <thead>
