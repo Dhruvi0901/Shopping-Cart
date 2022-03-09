@@ -11,9 +11,10 @@ import { Router } from '@angular/router';
 export class RegisterComponent implements OnInit {
   
   user = new User();
-  roles = ['','Admin','User'];
+  roles = ['Admin','User'];
 
-  constructor(private registerService: ProductserviceService, private router: Router) { }
+  constructor(private registerService: ProductserviceService, 
+    private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -23,7 +24,12 @@ export class RegisterComponent implements OnInit {
 
     this.registerService.postUser(this.user).subscribe((res)=>{
       console.log(res)
+      if(res){
       this.router.navigate(['/login'])
+      }
+      else{
+        alert("Email or Mobile Already Used.")
+      }
     })
   }
 }
