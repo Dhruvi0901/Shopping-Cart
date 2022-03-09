@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { User } from '../interface/user';
 import { ProductserviceService } from '../service/productservice.service';
 
@@ -14,7 +15,9 @@ export class LoginComponent implements OnInit {
 
   user = new User();
 
-  constructor(private router: Router, private profileService: ProductserviceService) { }
+  constructor(private router: Router, 
+    private profileService: ProductserviceService,
+    private toastr: ToastrService) { }
 
   ngOnInit(): void {
   }
@@ -35,7 +38,7 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/display/'+this.user.profileId])
 
       }else{
-        alert('Invalid UserId or Password')
+        this.toastr.error('Invalid UserId or Password')
         this.ngOnInit()
       }
      

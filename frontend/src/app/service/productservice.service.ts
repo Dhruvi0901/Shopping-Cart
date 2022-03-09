@@ -58,6 +58,7 @@ apiUrl = environment.NodeJsURL
   postToCart(product: Cart): Observable<Cart[]> {
     return this.http.post<Cart[]>(this.apiUrl+'/cart',product)
   }
+  
   getCartProduct(profileId: Number): Observable<Cart[]> {
     return this.http.get<Cart[]>(this.apiUrl+'/cart/'+profileId)
   }
@@ -69,6 +70,7 @@ apiUrl = environment.NodeJsURL
   increaseCartProduct(product: Cart): Observable<Cart[]> {
     return this.http.post<Cart[]>(this.apiUrl+'/cart/increase',product)
   }
+
   decreaseCartProduct(product: Cart): Observable<Cart[]> {
     return this.http.post<Cart[]>(this.apiUrl+'/cart/decrease',product)
   }
