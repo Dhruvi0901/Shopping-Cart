@@ -3,6 +3,7 @@ import { Product } from '../interface/user';
 import { ProductserviceService } from '../service/productservice.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { __param } from 'tslib';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-product',
@@ -17,7 +18,11 @@ export class ProductComponent implements OnInit {
   public updateBtn = "none";
   public saveBtn = "inline";
 
-  constructor(private productService: ProductserviceService, private route: ActivatedRoute, private router: Router) {
+  constructor(
+    private productService: ProductserviceService, 
+    private route: ActivatedRoute, 
+    private router: Router,
+    private toastr: ToastrService) {
 
     this.route.queryParams.subscribe(params => {
       this.profileId = Number(params['admin'])
@@ -37,6 +42,7 @@ export class ProductComponent implements OnInit {
     this.product.profileId = this.profileId
     this.productService.postProduct(this.product).subscribe((res) => {
       console.log(res)
+      this.toastr.success("Product Added")
       this.router.navigate(['/admin/' + this.profileId])
       console.log(this.profileId);
 
@@ -55,6 +61,7 @@ export class ProductComponent implements OnInit {
   updateData(){
     this.productService.putEditProduct(this.productId, this.product).subscribe((res)=>{
       console.log(res)
+      this.toastr.success("Product Update Successfully")
       this.router.navigate(['/admin/' + this.product.profileId])
     })
 
