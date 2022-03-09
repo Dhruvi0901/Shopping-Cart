@@ -12,7 +12,8 @@ import { AdminComponent } from './admin/admin.component';
 import { CartComponent } from './cart/cart.component';
 import { PlaceorderComponent } from './placeorder/placeorder.component';
 
-
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +30,9 @@ import { PlaceorderComponent } from './placeorder/placeorder.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
