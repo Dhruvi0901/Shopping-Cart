@@ -75,4 +75,7 @@ apiUrl = environment.NodeJsURL
     return this.http.post<Cart[]>(this.apiUrl+'/cart/decrease',product)
   }
 
+  loggedIn(){
+    return !!localStorage.getItem('token');
+  }
 }

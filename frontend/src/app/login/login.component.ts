@@ -31,11 +31,12 @@ export class LoginComponent implements OnInit {
       console.log(this.user.role)
 
       if(this.user.role == 'Admin'){
-        this.router.navigate(['/admin/'+this.user.profileId])
-
+        this.router.navigate(['/admin/'+this.user.profileId]);
+        localStorage.setItem('token',this.user.token)
 
       }else if(this.user.role == 'User'){
         this.router.navigate(['/display/'+this.user.profileId])
+        localStorage.setItem('token',this.user.token)
 
       }else{
         this.toastr.error('Invalid UserId or Password')

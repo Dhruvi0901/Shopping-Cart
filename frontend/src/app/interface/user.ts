@@ -5,9 +5,9 @@ export class User {
     phone?: Number;
     role?: String;
     profileId?:Number;
-    
-
+    token ?:any;
 }
+
 export class Product{
     profileId?: Number;
     productId?: Number;
