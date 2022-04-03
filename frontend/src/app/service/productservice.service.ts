@@ -78,4 +78,8 @@ apiUrl = environment.NodeJsURL
   loggedIn(){
     return !!localStorage.getItem('token');
   }
+
+  checkInCart(product: Cart): Observable<Cart[]> {
+    return this.http.post<Cart[]>(this.apiUrl+'/cart/check',product)
+  }
 }

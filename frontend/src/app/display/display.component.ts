@@ -14,6 +14,7 @@ export class DisplayComponent implements OnInit {
   products:  Product[];
 
   userName:any;
+  addedInCart=false;
   
   constructor(private productService: ProductserviceService, private route: ActivatedRoute, private cartService: ProductserviceService) {
     this.profileId = (Number(this.route.snapshot.paramMap.get('profileId'))) 
@@ -47,6 +48,19 @@ export class DisplayComponent implements OnInit {
 
   }
 
+  checkInCart(productId: any){
+    let product = {
+      "profileId": this.profileId,
+      "productId": Number(productId)
+    }
+    this.cartService.checkInCart(product).subscribe((res)=>{
+      if(res){
+        console.log(res)
+        this.addedInCart=true;
+      }
+    })
+
+  }
 
 
   
